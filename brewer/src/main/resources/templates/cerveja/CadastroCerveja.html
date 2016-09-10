@@ -8,13 +8,21 @@
 
 	<form method="POST">
 		<span th:text="${mensagem}"></span>
-		<br>
+		<br/>
 		
 		<label for="sku">SKU</label>
-		<input type="text" id="sku" name="sku">
-		<br>
+		<input type="text" id="sku" name="sku"/>
+		<br/>
 		
-		<input type="submit" value="Salvar">
+		<label for="nome">Nome</label>
+		<input type="text" id="nome" name="nome"/>
+		<br/>
+		
+		<label for="descricao">Descricao</label>
+		<input type="text" id="descricao" name="descricao"/>
+		<br/>
+		
+		<input type="submit" value="Salvar"/>
 	</form>
 
 </html>

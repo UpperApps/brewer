@@ -23,11 +23,13 @@ public class CervejasController {
 	@RequestMapping(value = "/cervejas/novo", method = RequestMethod.POST)
 	public String cadastrar(@Valid Cerveja cerveja, BindingResult result, Model model, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
+			//O Model deve ser utilizado com o Forward para retornar dados para a view.
 			model.addAttribute("mensagem", "Erro no formulário");
 			return "cerveja/CadastroCerveja";
 		}
 		
-		// Salvar no banco de dados...
+		
+		//Para o Redirect deve ser utilizado o RedirectAttributes para retornar dados para a view.
 		attributes.addFlashAttribute("mensagem", "Cerveja salva com sucesso!");
 		System.out.println(">>> sku: " + cerveja.getSku());
 		return "redirect:/cervejas/novo";
