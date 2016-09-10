@@ -1,43 +1,41 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>com.algaworks</groupId>
 	<artifactId>brewer</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 
 	<packaging>war</packaging>
 
-	<!-- As propriedades funcionam como variáveis. Isso facilita a manutenção 
-		quando é necessário, por exemplo, alterar a versão de uma dependência ou 
-		plugin. -->
 	<properties>
-		<project.buld.sourceEncoding>UTF-8</project.buld.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<!-- Não é mais necessário o arquivo WebXml para configurar projetos web. 
-			Portanto é importante incluir esta anotação para evitar que o compilador 
-			fique mostrando mensagens de erro. -->
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 
 		<java.version>1.8</java.version>
-		<maven-compiler-plugin.version>3.2</maven-compiler-plugin.version>
+		<maven-compiler-pluging.version>3.2</maven-compiler-pluging.version>
 
 		<!-- Spring MVC -->
 		<spring-framework.version>4.3.0.RELEASE</spring-framework.version>
 
 		<!-- Servlet API -->
 		<servlet.version>3.1.0</servlet.version>
-
+		
 		<!-- Thymeleaf -->
 		<thymeleaf.version>3.0.0.RELEASE</thymeleaf.version>
+		
+		<!-- Bean Validation / Hibernate Validator -->
+		<hibernate-validator.version>5.2.4.Final</hibernate-validator.version>
 	</properties>
 
-	<!-- Instalação e configuração dos plugins. -->
 	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven-compiler-plugin.version}</version>
+				<version>${maven-compiler-pluging.version}</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
@@ -46,9 +44,6 @@
 		</plugins>
 	</build>
 
-	<!-- Configura o gerenciador de dependências. Isso permite que o Spring 
-		defina quais versões deverão ser usadas para cada dependência, evitado conflito 
-		de dependências devido à versão. -->
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -61,12 +56,12 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<!-- Dependências de bibliotecas do projeto. -->
 	<dependencies>
 		<!-- Spring MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
+			<scope>compile</scope>
 		</dependency>
 
 		<!-- Servlet API -->
@@ -82,13 +77,24 @@
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf</artifactId>
 			<version>${thymeleaf.version}</version>
+			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf-spring4</artifactId>
 			<version>${thymeleaf.version}</version>
+			<scope>compile</scope>
 		</dependency>
+		
+		<!-- Bean Validation / Hibernate Validator -->
+  		<dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
+            <scope>compile</scope>
+        </dependency>
+		
 	</dependencies>
 
 </project>

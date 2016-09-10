@@ -30,45 +30,29 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		this.applicationContext = applicationContext;
 	}
 
-	/**
-	 * Início da configuração do Thymeleaf como engine da View. Caso algum dia
-	 * se queira trocar o Thymeleaf como engine, não seria necessário alterar
-	 * nada nos controllers, apenas esta configuração.
-	 **/
 	@Bean
 	public ViewResolver viewResolver() {
 		ThymeleafViewResolver resolver = new ThymeleafViewResolver();
-
-		resolver.setTemplateEngine(templateEngine());
+		resolver.setTemplateEngine((SpringTemplateEngine) templateEngine());
 		resolver.setCharacterEncoding("UTF-8");
-
 		return resolver;
 	}
 
-	// Método que configura o Template engine.
 	@Bean
 	public TemplateEngine templateEngine() {
 		SpringTemplateEngine engine = new SpringTemplateEngine();
-
 		engine.setEnableSpringELCompiler(true);
 		engine.setTemplateResolver(templateResolver());
-
 		return engine;
 	}
 
-	// Implementa o método da classe ApplicationContextAware que resolve o
-	// template engine.
 	private ITemplateResolver templateResolver() {
-
 		SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
 		resolver.setApplicationContext(applicationContext);
-		resolver.setPrefix("classpath:templates/");
+		resolver.setPrefix("classpath:/templates/");
 		resolver.setSuffix(".html");
 		resolver.setTemplateMode(TemplateMode.HTML);
-
 		return resolver;
 	}
-	/**
-	 * Fim da configuração do Thymeleaf
-	 **/
+
 }

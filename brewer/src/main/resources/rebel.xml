@@ -2,20 +2,8 @@
 <application generated-by="eclipse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zeroturnaround.com" xsi:schemaLocation="http://www.zeroturnaround.com http://update.zeroturnaround.com/jrebel/rebel-2_1.xsd">
 
 	<classpath>
-		<dir name="C:/Repositórios/Curso de Spring Framework da AlgaWorks/brewer/target/classes">
+		<dir name="C:/Users/Rodrigo/git/brewer/brewer/target/classes">
 		</dir>
 	</classpath>
-
-	<web>
-		<link target="/">
-			<dir name="C:/Repositórios/Curso de Spring Framework da AlgaWorks/brewer/target/m2e-wtp/web-resources">
-				<exclude name="/"/>
-			</dir>
-		</link>
-		<link target="/">
-			<dir name="C:/Repositórios/Curso de Spring Framework da AlgaWorks/brewer/src/main/webapp">
-			</dir>
-		</link>
-	</web>
 
 </application>
