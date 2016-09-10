@@ -1,28 +1,42 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 
 <body>
 	<h1>Olá! Thymeleaf configurado!</h1>
-</body>
 
-	<form method="POST">
-		<span th:text="${mensagem}"></span>
-		<br/>
-		
+	<!-- Deve-se observar a forma de se atribuir a variável de erro. A forma de
+		 se obter os erros do objeto é diferente quando feito dentro ou fora do form. -->
+	<div th:each="erro : ${#fields.detailedErrors('${cerveja.*}')}">
+		<span th:text="${erro.message}"></span>
+	</div>
+
+	<form method="POST" th:object="${cerveja}">
+
+		<!-- Deve-se observar a forma de se atribuir a variável de erro. A forma de
+			se obter os erros do objeto é diferente quando feito dentro ou fora do form.
+			Dentro do form  o fields.detailedErrors() não precisa de argumentos pois utiliza o
+			objeto passado no atributo th:object do form-->
+
+		<!-- 		<div th:each="erro : ${#fields.detailedErrors()}"> -->
+		<!-- 			<span th:text="${erro.message}"></span> -->
+		<!-- 		</div> -->
+
+		<br />
 		<label for="sku">SKU</label>
-		<input type="text" id="sku" name="sku"/>
-		<br/>
+		<input type="text" id="sku" th:field="*{sku}" />
+		<br />
 		
 		<label for="nome">Nome</label>
-		<input type="text" id="nome" name="nome"/>
-		<br/>
+		<input type="text" id="nome" th:field="*{nome}" />
+		<br />
 		
 		<label for="descricao">Descricao</label>
-		<input type="text" id="descricao" name="descricao"/>
-		<br/>
+		<textarea rows="3" cols="30" id="descricao" th:field="*{descricao}"></textarea>
+		<br />
 		
-		<input type="submit" value="Salvar"/>
+		<input type="submit" value="Salvar" />
 	</form>
 
+</body>
 </html>
