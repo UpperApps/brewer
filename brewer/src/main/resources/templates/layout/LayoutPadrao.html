@@ -34,7 +34,7 @@
 
 				<div class="navbar-header">
 					<a class="navbar-brand  hidden-xs" href="#"> <img
-						alt="AlgaWorks" th:src="@{/images/logo.png}" />
+						alt="Brewer" th:src="@{/images/logo.png}" />
 					</a>
 
 					<ul class="nav  navbar-nav">
@@ -105,8 +105,15 @@
 	</div>
 	
 	<!-- Início da inclusão dos scripts javascrpt -->
+	<!-- javascripts do layout -->
 	<script th:src="@{/layout/javascripts/vendors.min.js}"></script>
 	<script th:src="@{/layout/javascripts/algaworks.min.js}"></script>
+	
+	<!-- javascripts de terceiros -->
+	<script th:src="@{/javascripts/vendors/jquery.maskMoney.min.js}"></script>
+	
+	<!-- Meus arquivos javascript. -->
+	<script th:src="@{/javascripts/brewer.js}"></script>
 	<!-- Fim da inclusão dos scripts javascrpt -->
 
 </body>
