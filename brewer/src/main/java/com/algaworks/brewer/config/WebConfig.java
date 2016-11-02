@@ -31,6 +31,7 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		this.applicationContext = applicationContext;
 	}
 
+	/**Os e métodos abaixo fazem a configuração do Thymeleaf.**/
 	@Bean
 	public ViewResolver viewResolver() {
 		ThymeleafViewResolver resolver = new ThymeleafViewResolver();
@@ -55,6 +56,7 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		resolver.setTemplateMode(TemplateMode.HTML);
 		return resolver;
 	}
+	//Fim da configuração do Thymeleaf.
 	
 	/**Configura a localização dos recursos estáticos das páginas html (css, jsvastript, imagens, etc.).**/
 	@Override
