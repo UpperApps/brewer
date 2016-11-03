@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div class="modal fade" id="modalCadastroRapidoEstilo" tabindex="-1" role="dialog" th:fragment="modal">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Cadastar Estilo</h4>
+	      </div>
+	      <div class="modal-body">
+		      <form action="" class="form-horizontal">
+		       	  <div class="form-group">
+		      	  	<label for="nomeEstilo" class="col-sm-2 control-label">Nome</label>
+		      	  	<div class="col-sm-10">
+			      	  	<input id="nomeEstilo" type="text" class="form-control" autofocus="autofocus">
+		      	  	</div>
+		      	  </div>
+		      	  
+				  <button type="button" class="btn btn-primary">Salvar</button>
+				  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+		      </form>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</body>
+</html>

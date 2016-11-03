@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/vendors.min.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/algaworks.min.css}" />
 <link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/application.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/brewer.css}" />
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,19 +27,14 @@
 
 	<div class="aw-layout-page">
 
-	<div th:replace="/layout/fragments/BarraNavegacao" th:fragment="navbar"></div>
+	<div th:replace="/layout/fragments/BarraNavegacao :: navbar"></div>
 
-	<div th:replace="/layout/fragments/MenuLateral" th:fragment="sidebar"></div>
+	<div th:replace="/layout/fragments/MenuLateral :: sidebar"></div>
 
 		<!-- Início do Conteúdo -->
-		<section class="aw-layout-content  js-content" layout:fragment="conteudo">
+		<section class="aw-layout-content  js-content" layout:fragment="conteudo"></section>
 		
-		<!-- O conteúdo será inserido aqui. -->
-		
-		</section>
-		<!-- Fim do Conteúdo -->
-		
-	<div th:replace="/layout/fragments/Footer" th:fragment="footer"></div>
+	<div th:replace="/layout/fragments/Footer :: footer"></div>
 
 	</div>
 	
