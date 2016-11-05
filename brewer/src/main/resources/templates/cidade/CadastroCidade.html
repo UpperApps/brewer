@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="'layout/LayoutPadrao'">
+
+<head>
+	<title>Cadastro de Cidades</title>
+	<!-- CSS de terceiros -->
+	<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/vendors/bootstrap-switch.min.css}" />
+</head>
+
+<body>
+
+<section layout:fragment="conteudo">
+
+	<div class="page-header">
+		<div class="container-fluid">
+			<h1>Cadastro de Cidades</h1>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+
+		<!-- 				<div class="alert  alert-danger  alert-dismissible" role="alert"> -->
+		<!-- 					<button type="button" class="close" data-dismiss="alert" -->
+		<!-- 						aria-label="Close"> -->
+		<!-- 						<span aria-hidden="true">&times;</span> -->
+		<!-- 					</button> -->
+		<!-- 					<i class="fa  fa-exclamation-circle"></i> Já existe um produto com -->
+		<!-- 					o nome informado. -->
+		<!-- 				</div> -->
+
+		<form method="POST" th:object="${cerveja}"
+			class="form-vertical  js-form-loading">
+
+			<div class="row form-group">
+				<div class="col-sm-4">
+					<label for="estado">Estado</label>
+					<select id="estado" class="form-control">
+						<option value="">Selecione o estado...</option>
+						<option value=1>Rio de Janeiro</option>
+					</select>
+				</div>
+				<div class="col-sm-8">
+					<label for="cidade">Cidade</label>
+					<input	id="cidade" type="text" class="form-control" placeholder="Cidade" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<button class="btn  btn-primary" type="submit">Salvar</button>
+			</div>
+
+		</form>
+	</div>
+
+	<div th:replace="/estilo/CadastroRapidoEstilo :: modal"></div>
+</section>
+
+<!-- Este bloco faz com  que o código javascript seja incluído no final da página de layout. -->
+<!-- Isso previne que o código javascript seja carregado no tempo errado. -->
+<th:block layout:fragment="javascript-extra">
+	<!-- javascripts de terceiros -->
+	<script th:src="@{/javascripts/vendors/bootstrap-switch.min.js}"></script>
+	<script>
+		$('.js-status').bootstrapSwitch();
+	</script>
+</th:block>
+	
+</body>
+</html>
