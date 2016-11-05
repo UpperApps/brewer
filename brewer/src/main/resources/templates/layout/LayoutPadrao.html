@@ -48,6 +48,10 @@
 	
 	<!-- Meus arquivos javascript. -->
 	<script th:src="@{/javascripts/brewer.js}"></script>
+	
+	<!-- Inlcui no final da página os códigos javascript que foram incluídos em fragmentos de outros html.  -->
+	<th:block layout:fragment="javascript-extra"></th:block>
+	
 	<!-- Fim da inclusão dos scripts javascrpt -->
 
 </body>
