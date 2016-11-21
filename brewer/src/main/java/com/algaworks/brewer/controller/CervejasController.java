@@ -45,8 +45,14 @@ public class CervejasController {
 //			return novo(cerveja);
 //		}
 
+		//TODO Salvar no banco de dados.
+		
 		// Para o Redirect deve ser utilizado o RedirectAttributes para retornar dados para a view.
 		attributes.addFlashAttribute("mensagem", "Cerveja salva com sucesso!");
+		
+		System.out.println("Estilo: " + cerveja.getEstilo());
+		if(cerveja.getEstilo() != null) System.out.println("Estilo: " + cerveja.getEstilo().getCodigo());
+		
 		return new ModelAndView("redirect:/cervejas/novo");
 	}
 	
