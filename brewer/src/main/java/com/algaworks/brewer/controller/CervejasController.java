@@ -40,10 +40,10 @@ public class CervejasController {
 	@RequestMapping(value = "/cervejas/novo", method = RequestMethod.POST)
 	public ModelAndView cadastrar(@Valid Cerveja cerveja, BindingResult result, Model model, RedirectAttributes attributes) {
 
-		if (result.hasErrors()) {
-			// O Model deve ser utilizado com o Forward para retornar dados para a view.
-			return novo(cerveja);
-		}
+//		if (result.hasErrors()) {
+//			// O Model deve ser utilizado com o Forward para retornar dados para a view.
+//			return novo(cerveja);
+//		}
 
 		// Para o Redirect deve ser utilizado o RedirectAttributes para retornar dados para a view.
 		attributes.addFlashAttribute("mensagem", "Cerveja salva com sucesso!");
