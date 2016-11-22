@@ -17,6 +17,7 @@ import com.algaworks.brewer.model.Cerveja;
 import com.algaworks.brewer.model.Origem;
 import com.algaworks.brewer.model.Sabor;
 import com.algaworks.brewer.repository.Estilos;
+import com.algaworks.brewer.service.CadastroCervejaService;
 
 @Controller
 public class CervejasController {
@@ -26,6 +27,9 @@ public class CervejasController {
 
 	@Autowired
 	private Estilos estilos;
+	
+	@Autowired
+	private CadastroCervejaService cadastroCervejaService;
 		
 	@RequestMapping("/cervejas/novo")
 	public ModelAndView novo(Cerveja cerveja) {
@@ -40,19 +44,17 @@ public class CervejasController {
 	@RequestMapping(value = "/cervejas/novo", method = RequestMethod.POST)
 	public ModelAndView cadastrar(@Valid Cerveja cerveja, BindingResult result, Model model, RedirectAttributes attributes) {
 
-//		if (result.hasErrors()) {
-//			// O Model deve ser utilizado com o Forward para retornar dados para a view.
-//			return novo(cerveja);
-//		}
+		if (result.hasErrors()) {
+			// O Model deve ser utilizado com o Forward para retornar dados para a view.
+			return novo(cerveja);
+		}
 
-		//TODO Salvar no banco de dados.
+		//Salva a cerveja.
+		cadastroCervejaService.salvar(cerveja);
 		
 		// Para o Redirect deve ser utilizado o RedirectAttributes para retornar dados para a view.
 		attributes.addFlashAttribute("mensagem", "Cerveja salva com sucesso!");
-		
-		System.out.println("Estilo: " + cerveja.getEstilo());
-		if(cerveja.getEstilo() != null) System.out.println("Estilo: " + cerveja.getEstilo().getCodigo());
-		
+
 		return new ModelAndView("redirect:/cervejas/novo");
 	}
 	
