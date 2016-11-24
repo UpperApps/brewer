@@ -28,7 +28,7 @@ public class CidadesController {
 
 		// Para o Redirect deve ser utilizado o RedirectAttributes para retornar
 		// dados para a view.
-		attributes.addFlashAttribute("mensagem", "Usuário salvo com sucesso!");
+		attributes.addFlashAttribute("mensagem", "Cidade salva com sucesso!");
 		return "redirect:/cidades/novo";
 	}
 
