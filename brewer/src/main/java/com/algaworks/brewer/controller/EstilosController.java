@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.algaworks.brewer.model.Estilo;
 import com.algaworks.brewer.service.CadastroEstiloService;
+import com.algaworks.brewer.service.exception.NomeEstiloJaCadastradoException;
 
 @Controller
 public class EstilosController {
@@ -32,7 +33,12 @@ public class EstilosController {
 		}
 
 		//Salva o Estilo no BD.
-		cadastroEstiloService.salvar(estilo);
+		try {
+			cadastroEstiloService.salvar(estilo);
+		} catch (NomeEstiloJaCadastradoException  e) {
+			result.rejectValue("nome", e.getMessage(), e.getMessage());
+			return novo(estilo);
+		}
 		
 		// Para o Redirect deve ser utilizado o RedirectAttributes para retornardado s para a view.
 		attributes.addFlashAttribute("mensagem", "Estilo salvo com sucesso!");
